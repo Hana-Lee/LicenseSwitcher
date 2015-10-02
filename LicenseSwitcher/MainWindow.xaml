@@ -19,6 +19,6 @@
                 <MenuItem Header="Show Help"/>
             </MenuItem>
         </Menu>
-        <Frame x:Name="MainFrame"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </DockPanel>
 </Window>

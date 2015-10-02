@@ -71,5 +71,10 @@ namespace LicenseSwitcher
 
             return selectedValue;
         }
+
+        private void SettingsBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            PageSwitcher.Switch(new SettingsPage());
+        }
     }
 }
