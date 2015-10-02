@@ -21,13 +21,9 @@ namespace LicenseSwitcher
     /// </summary>
     public partial class MainPage : Page
     {
-        public TextBox OutputTextBox { get; set; }
-
         public MainPage()
         {
             InitializeComponent();
-
-            OutputTextBox = (TextBox)FindName("outputMsg");
         }
 
         private void VersionComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -52,9 +48,12 @@ namespace LicenseSwitcher
         private void WriteToOutputTextBox(object sender)
         {
             var comboBox = sender as ComboBox;
-            if (OutputTextBox != null)
+            if (OutputMsg == null) return;
+
+            var selectedValue = GetSelectedValueFromVersionComboBox(comboBox);
+            if (selectedValue != null)
             {
-                OutputTextBox.Text = GetSelectedValueFromVersionComboBox(comboBox);
+                OutputMsg.Text = selectedValue;
             }
         }
 
