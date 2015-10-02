@@ -23,12 +23,14 @@
             <Button x:Name="SaveBtn"
                     Content="Save" 
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="10" Padding="0" Grid.Row="0" Grid.Column="0" FontSize="18" />
+                    Margin="10" Padding="0" Grid.Row="0" Grid.Column="0" FontSize="18" 
+                    Click="SaveBtn_OnClick"/>
 
             <Button x:Name="CancelBtn"
                     Content="Cancel"  
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="10" Padding="0" Grid.Row="0" Grid.Column="1" FontSize="18" />
+                    Margin="10" Padding="0" Grid.Row="0" Grid.Column="1" FontSize="18" 
+                    Click="CancelBtn_OnClick"/>
         </Grid>
 
         <Grid x:Name="SettingsListGrid" 

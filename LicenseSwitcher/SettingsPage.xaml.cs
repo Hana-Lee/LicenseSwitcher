@@ -24,5 +24,21 @@ namespace LicenseSwitcher
         {
             InitializeComponent();
         }
+
+        private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            PageSwitcher.Switch(new MainPage());
+        }
+
+        private void SaveBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Settings save done!", "Information", 
+                MessageBoxButton.OK, MessageBoxImage.Information);
+
+            if (result == MessageBoxResult.OK)
+            {
+                PageSwitcher.Switch(new MainPage());
+            }
+        }
     }
 }
