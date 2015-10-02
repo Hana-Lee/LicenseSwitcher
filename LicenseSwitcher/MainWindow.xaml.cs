@@ -29,9 +29,9 @@ namespace LicenseSwitcher
             PageSwitcher.Switch(new MainPage());
         }
 
-        public void Navigate(Page page)
+        public void Navigate(Page newPage)
         {
-            MainFrame.Content = page;
+            MainFrame.Navigate(newPage);
         }
     }
 }
