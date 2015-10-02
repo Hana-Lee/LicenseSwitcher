@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LicenseSwitcher"
         mc:Ignorable="d"
-        Title="License Switcher" Height="340" Width="420" ResizeMode="NoResize" Visibility="Visible">
+        Title="License Switcher" Height="360" Width="420" ResizeMode="NoResize" Visibility="Visible">
     <DockPanel>
-        <Frame x:Name="_mainFrame"/>
+        <Menu x:Name="MainManu" 
+              VerticalAlignment="Top" DockPanel.Dock="Top"
+              Height="20">
+            <MenuItem Header="File">
+                <MenuItem Header="Save Settings"/>
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About"/>
+                <MenuItem Header="Show Help"/>
+            </MenuItem>
+        </Menu>
+        <Frame x:Name="MainFrame"/>
     </DockPanel>
 </Window>

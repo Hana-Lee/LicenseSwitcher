@@ -24,7 +24,7 @@ namespace LicenseSwitcher
         {
             InitializeComponent();
             //_mainFrame.Navigate(new SettingsPage());
-            _mainFrame.Navigate(new MainPage());
+            _MainFrame.Navigate(new MainPage());
         }
     }
 }
