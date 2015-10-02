@@ -25,13 +25,13 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="versionLabel" 
+        <Label x:Name="VersionLabel" 
                Content="Version" 
                HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="10,10,0,0" Height="30" Width="89" FontSize="18"/>
-        <ComboBox x:Name="versionCombo" 
+        <ComboBox x:Name="VersionCombo" 
                   HorizontalAlignment="Left" VerticalAlignment="Top"
-                  Margin="90,18,0,0" Width="100"
+                  Margin="90,18,0,0" Grid.Row="0" Grid.Column="0" Width="100"
                   Loaded="VersionComboBox_Loaded"
                   SelectionChanged="VersionComboBox_SelectionChanged">
             <ComboBoxItem IsSelected="True">trunk</ComboBoxItem>
@@ -39,16 +39,16 @@
             <ComboBoxItem>4.2</ComboBoxItem>
         </ComboBox>
 
-        <TextBox x:Name="outputMsg"
+        <TextBox x:Name="OutputMsg"
                  Text="" IsReadOnly="True"
                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                 Margin="10,0,10,0" Grid.Row="1" Grid.ColumnSpan="2"
+                 Margin="10,0,10,0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
                  TextWrapping="NoWrap" FontSize="18"/>
-        <Button x:Name="licenseSwitchBtn" 
+        <Button x:Name="LicenseSwitchBtn" 
                 Content="License Switch" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Margin="10" Padding="0" Grid.Column="0" Grid.Row="2" FontSize="18" />
-        <Button x:Name="settingBtn" 
+        <Button x:Name="SettingsBtn" 
                 Content="Settings" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Margin="10" Padding="0" Grid.Column="1" Grid.Row="2" FontSize="18" />
