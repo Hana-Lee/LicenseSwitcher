@@ -23,8 +23,7 @@ namespace LicenseSwitcher
         public MainWindow()
         {
             InitializeComponent();
-            //_mainFrame.Navigate(new SettingsPage());
-            //MainFrame.Navigate(new MainPage());
+
             PageSwitcher.LicenseSwitcherMainWindow = this;
             PageSwitcher.Switch(new MainPage());
         }
