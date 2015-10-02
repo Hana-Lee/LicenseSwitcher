@@ -21,10 +21,56 @@ namespace LicenseSwitcher
     /// </summary>
     public partial class MainPage : Page
     {
+        public TextBox OutputTextBox { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
+
+            OutputTextBox = (TextBox)FindName("outputMsg");
+        }
+
+        private void VersionComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            //List<string> data = new List<string>();
+            //data.Add("trunk");
+            //data.Add("4.1");
+            //data.Add("4.0");
+
+            //var comboBox = sender as ComboBox;
+            //comboBox.ItemsSource = data;
+            //comboBox.SelectedIndex = 0;
+
+            WriteToOutputTextBox(sender);
+        }
+
+        private void VersionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            WriteToOutputTextBox(sender);
+        }
+
+        private void WriteToOutputTextBox(object sender)
+        {
+            var comboBox = sender as ComboBox;
+            if (OutputTextBox != null)
+            {
+                OutputTextBox.Text = GetSelectedValueFromVersionComboBox(comboBox);
+            }
+        }
+
+        private static string GetSelectedValueFromVersionComboBox(Selector versionComboBox)
+        {
+            var selectedValue = "";
+            if (versionComboBox == null) return selectedValue;
+
+            var selectedItem = versionComboBox.SelectedItem as ComboBoxItem;
+
+            if (selectedItem != null)
+            {
+                selectedValue = selectedItem.Content as string;
+            }
+
+            return selectedValue;
         }
     }
 }
