@@ -7,31 +7,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="400"
       Title="SettingsPage">
-    <DockPanel x:Name="settingsDockPanel" LastChildFill="True">
+    <DockPanel x:Name="SettingsDockPanel" LastChildFill="True">
         <DockPanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
                 <GradientStop Color="#FF86E881" Offset="1"/>
             </LinearGradientBrush>
         </DockPanel.Background>
-        <Grid x:Name="settingsBtnGrid" DockPanel.Dock="Bottom" Height="50">
+        <Grid x:Name="SettingsBtnGrid" DockPanel.Dock="Bottom" Height="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="saveBtn"
+            <Button x:Name="SaveBtn"
                     Content="Save" 
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="10" Padding="0" Grid.Row="1" Grid.Column="0" FontSize="18" />
+                    Margin="10" Padding="0" Grid.Row="0" Grid.Column="0" FontSize="18" />
 
-            <Button x:Name="cancelBtn"
+            <Button x:Name="CancelBtn"
                     Content="Cancel"  
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="10" Padding="0" Grid.Row="1" Grid.Column="1" FontSize="18" />
+                    Margin="10" Padding="0" Grid.Row="0" Grid.Column="1" FontSize="18" />
         </Grid>
 
-        <Grid x:Name="settingsListGrid" 
+        <Grid x:Name="SettingsListGrid" 
               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
               Margin="10,10,10,0" Background="#FFDADAFF">
             <Grid.RowDefinitions>
@@ -49,87 +49,87 @@
                 <ColumnDefinition Width="60*" />
             </Grid.ColumnDefinitions>
 
-            <Label x:Name="versionLabel"
+            <Label x:Name="VersionLabel"
                    Content="Version"
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                    Margin="5" Padding="0,5"/>
-            <Label x:Name="workspaceLabel"
+            <Label x:Name="WorkspaceLabel"
                    Content="Workspace" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                   Margin="5" Padding="0,5" Grid.Row="1" />
-            <Label x:Name="licFolderLabel"
+                   Margin="5" Padding="0,5" Grid.Row="1" Grid.Column="0" />
+            <Label x:Name="LicFolderLabel"
                    Content="Lic folder" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                   Margin="5" Padding="0,5" Grid.Row="2"/>
-            <Label x:Name="oracleLabel" Content="ORACLE" 
+                   Margin="5" Padding="0,5" Grid.Row="2" Grid.Column="0" />
+            <Label x:Name="OracleLabel" Content="ORACLE" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                   Margin="5" Padding="0,5" Grid.Row="3"/>
-            <Label x:Name="mysqlLabel"
+                   Margin="5" Padding="0,5" Grid.Row="3" Grid.Column="0" />
+            <Label x:Name="MysqlLabel"
                    Content="MYSQL" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                   Margin="5" Padding="0,5" Grid.Row="4"/>
-            <Label x:Name="mssqlLabel"
+                   Margin="5" Padding="0,5" Grid.Row="4" Grid.Column="0" />
+            <Label x:Name="MssqlLabel"
                    Content="MSSQL" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                   Margin="5" Padding="0,5" Grid.Row="5"/>
-            <Label x:Name="derbyLabel"
+                   Margin="5" Padding="0,5" Grid.Row="5" Grid.Column="0" />
+            <Label x:Name="DerbyLabel"
                    Content="DERBY" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                   Margin="5" Padding="0,5" Grid.Row="6"/>
+                   Margin="5" Padding="0,5" Grid.Row="6" Grid.Column="0" />
 
-            <ComboBox x:Name="comboBox" 
+            <ComboBox x:Name="VersionComboBox" 
                       HorizontalAlignment="Left" VerticalAlignment="Stretch" 
-                      Margin="0,5" Grid.Column="1" Grid.ColumnSpan="2" Width="100">
+                      Margin="0,5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Width="100">
                 <ComboBoxItem IsSelected="True">trunk</ComboBoxItem>
                 <ComboBoxItem>4.1</ComboBoxItem>
                 <ComboBoxItem>4.0</ComboBoxItem>
             </ComboBox>
-            <TextBox x:Name="workspaceTextBox" 
+            <TextBox x:Name="WorkspaceTextBox" 
                      Text="C:\dev\workspace\eyeq-trunk" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" />
-            <TextBox x:Name="licFolderTextBox" 
+            <TextBox x:Name="LicFolderTextBox" 
                      Text="C:\dev\eyeq-license" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" />
-            <TextBox x:Name="oracleTextBox" 
+            <TextBox x:Name="OracleTextBox" 
                      Text="toga.lic.oracle" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" />
-            <TextBox x:Name="mysqlTextBox" 
+            <TextBox x:Name="MysqlTextBox" 
                      Text="toga.lic.mysql" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" />
-            <TextBox x:Name="mssqlTextBox" 
+            <TextBox x:Name="MssqlTextBox" 
                      Text="toga.lic.mssql" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" />
-            <TextBox x:Name="derbyTextBox" 
+            <TextBox x:Name="DerbyTextBox" 
                      Text="toga.lic.derby" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" />
 
-            <Button x:Name="workspaceFindBtn" 
+            <Button x:Name="WorkspaceFindBtn" 
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="1" Width="40"/>
-            <Button x:Name="licFolderFindBtn" 
+            <Button x:Name="LicFolderFindBtn" 
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="2" Width="40"/>
-            <Button x:Name="oracleFindBtn"
+            <Button x:Name="OracleFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="3" Width="40"/>
-            <Button x:Name="mysqlFindBtn"
+            <Button x:Name="MysqlFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="4" Width="40"/>
-            <Button x:Name="mssqlFindBtn"
+            <Button x:Name="MssqlFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="5" Width="40"/>
-            <Button x:Name="derbyFindBtn"
+            <Button x:Name="DerbyFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="6" Width="40"/>
