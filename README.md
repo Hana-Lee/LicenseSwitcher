@@ -1,2 +1,4 @@
-# LicenseSwitcher
-License Switcher for TOGA License in my office.
+# License Switcher
+사무실에서 사용하는 라이센스 파일의 변경 작업이 불편하고 귀찮아서 만들게된 윈도우즈용 데스크탑 어플리케이션.
+
+2015년 10월 03일
