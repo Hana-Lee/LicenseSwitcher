@@ -1,7 +1,52 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LicenseSwitcher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4.1</Value>
+    </Setting>
+    <Setting Name="v41_target" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\dev\workspace\eyeq-4.1.x</Value>
+    </Setting>
+    <Setting Name="v41_lic_dir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\dev\eyeq-license</Value>
+    </Setting>
+    <Setting Name="v41_oracle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.oracle</Value>
+    </Setting>
+    <Setting Name="v41_derby" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.derby</Value>
+    </Setting>
+    <Setting Name="v41_mssql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.mssql</Value>
+    </Setting>
+    <Setting Name="v41_mysql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.mysql</Value>
+    </Setting>
+    <Setting Name="trunk_target" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\dev\workspace\eyeq-trunk</Value>
+    </Setting>
+    <Setting Name="trunk_lic_dir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\dev\eyeq-license</Value>
+    </Setting>
+    <Setting Name="trunk_oracle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.oracle</Value>
+    </Setting>
+    <Setting Name="trunk_derby" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.derby</Value>
+    </Setting>
+    <Setting Name="trunk_mssql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.mssql</Value>
+    </Setting>
+    <Setting Name="trunk_mysql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">toga.lic.mysql</Value>
+    </Setting>
+    <Setting Name="Version_List" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;trunk&lt;/string&gt;
+  &lt;string&gt;v41&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

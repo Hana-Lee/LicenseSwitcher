@@ -47,7 +47,8 @@
         <Button x:Name="LicenseSwitchBtn" 
                 Content="License Switch" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                Margin="10" Padding="0" Grid.Column="0" Grid.Row="2" FontSize="18" />
+                Margin="10" Padding="0" Grid.Column="0" Grid.Row="2" FontSize="18" 
+                Click="LicenseSwitchBtn_OnClick"/>
         <Button x:Name="SettingsBtn" 
                 Content="Settings" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"

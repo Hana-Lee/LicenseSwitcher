@@ -76,5 +76,29 @@ namespace LicenseSwitcher
         {
             PageSwitcher.Switch(new SettingsPage());
         }
+
+        private void LicenseSwitchBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var selectedDatabaseValue = TogaProperties.Get("dataSource.url");
+            string selectedDatabase;
+            if (selectedDatabaseValue.ToLower().Contains(SupportedDatabase.mysql.ToString()))
+            {
+                selectedDatabase = "mysql";
+            }
+            else if (selectedDatabaseValue.ToLower().Contains(SupportedDatabase.oracle.ToString()))
+            {
+                selectedDatabase = "oracle";
+            }
+            else if (selectedDatabaseValue.ToLower().Contains(SupportedDatabase.sqlserver.ToString()))
+            {
+                selectedDatabase = "sqlserver";
+            }
+            else
+            {
+                selectedDatabase = "derby";
+            }
+            
+            OutputMsg.Text = (string) Properties.Settings.Default["Version"];
+        }
     }
 }

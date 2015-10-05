@@ -11,12 +11,9 @@ namespace LicenseSwitcher
     {
         public static Dictionary<string, string> Properties;
 
-        static TogaProperties()
-        {
-            Initialization();
-        }
+        static TogaProperties(){}
 
-        private static Dictionary<string, string> Initialization()
+        private static void Load_Properties()
         {
             const string homeDrive = "%HOMEDRIVE%";
             const string homePath = "%HOMEPATH%";
@@ -24,12 +21,19 @@ namespace LicenseSwitcher
             var togaHome = userHome + ".kona\\";
             const string togaPropertiesFileName = "KONA.properties";
 
-            return File.ReadAllLines(togaHome + togaPropertiesFileName)
+            Properties = File.ReadAllLines(togaHome + togaPropertiesFileName)
                 .Where(row => !string.IsNullOrEmpty(row) && !row.StartsWith("#"))
                 .ToDictionary(
                     row => row.Split('=')[0],
                     row => string.Join("=", row.Split('=').Skip(1).ToArray())
                 );
+        }
+
+        public static string Get(string key)
+        {
+            Load_Properties();
+
+            return Properties[key];
         }
     }
 }
