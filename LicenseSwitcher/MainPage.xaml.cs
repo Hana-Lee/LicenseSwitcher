@@ -27,6 +27,7 @@ namespace LicenseSwitcher
             //var comboBox = sender as ComboBox;
             //comboBox.ItemsSource = data;
             //comboBox.SelectedIndex = 0;
+            VersionCombo.SelectedValue = Settings.Default.Version;
             var selectedVersionValue = GetSelectedValueFromVersionComboBox(VersionCombo);
             if (selectedVersionValue != null)
             {
@@ -41,6 +42,9 @@ namespace LicenseSwitcher
             {
                 OutputMsg.Text = " * " + selectedVersionValue + " 버전 준비 완료.\n";
             }
+
+            Settings.Default.Version = selectedVersionValue;
+            Settings.Default.Save();
         }
 
         private static string GetSelectedValueFromVersionComboBox(Selector versionComboBox)

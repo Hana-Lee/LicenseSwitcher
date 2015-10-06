@@ -58,9 +58,9 @@ namespace LicenseSwitcher
 
         private void VersionComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            var comboBox = sender as ComboBox;
+            VersionComboBox.SelectedValue = Settings.Default.Version;
 
-            var selectedValue = GetSelectedValueFromVersionComboBox(comboBox);
+            var selectedValue = GetSelectedValueFromVersionComboBox(VersionComboBox);
             if (selectedValue != null)
             {
                 Fill_SettingValue(selectedValue);
@@ -69,13 +69,14 @@ namespace LicenseSwitcher
 
         private void VersionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var comboBox = sender as ComboBox;
-
-            var selectedValue = GetSelectedValueFromVersionComboBox(comboBox);
+            var selectedValue = GetSelectedValueFromVersionComboBox(VersionComboBox);
             if (selectedValue != null)
             {
                 Fill_SettingValue(selectedValue);
             }
+
+            Settings.Default.Version = selectedValue;
+            Settings.Default.Save();
         }
 
         private static string GetSelectedValueFromVersionComboBox(Selector versionComboBox)

@@ -32,10 +32,11 @@
         <ComboBox x:Name="VersionCombo" 
                   HorizontalAlignment="Left" VerticalAlignment="Top"
                   Margin="90,18,0,0" Grid.Row="0" Grid.Column="0" Width="100"
+                  SelectedValuePath="Content"
                   Loaded="VersionComboBox_Loaded"
                   SelectionChanged="VersionComboBox_SelectionChanged">
-            <ComboBoxItem IsSelected="True">trunk</ComboBoxItem>
-            <ComboBoxItem>v41</ComboBoxItem>
+            <ComboBoxItem Content="trunk"/>
+            <ComboBoxItem Content="v41"/>
         </ComboBox>
 
         <TextBox x:Name="OutputMsg"

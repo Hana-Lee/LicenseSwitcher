@@ -83,10 +83,11 @@
                       HorizontalAlignment="Left" VerticalAlignment="Stretch" 
                       Margin="0,5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" 
                       Width="100"
+                      SelectedValuePath="Content"
                       Loaded="VersionComboBox_Loaded"
-                  SelectionChanged="VersionComboBox_SelectionChanged">
-                <ComboBoxItem IsSelected="True">trunk</ComboBoxItem>
-                <ComboBoxItem>v41</ComboBoxItem>
+                      SelectionChanged="VersionComboBox_SelectionChanged">
+                <ComboBoxItem Content="trunk"/>
+                <ComboBoxItem Content="v41"/>
             </ComboBox>
             <TextBox x:Name="TargetTextBox" 
                      Text="C:\dev\workspace\eyeq-trunk" IsReadOnly="True"
