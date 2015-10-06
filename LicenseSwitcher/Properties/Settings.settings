@@ -8,7 +8,7 @@
     <Setting Name="v41_target" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\dev\workspace\eyeq-4.1.x</Value>
     </Setting>
-    <Setting Name="v41_lic_dir" Type="System.String" Scope="User">
+    <Setting Name="v41_lic_folder" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\dev\eyeq-license</Value>
     </Setting>
     <Setting Name="v41_oracle" Type="System.String" Scope="User">
@@ -26,7 +26,7 @@
     <Setting Name="trunk_target" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\dev\workspace\eyeq-trunk</Value>
     </Setting>
-    <Setting Name="trunk_lic_dir" Type="System.String" Scope="User">
+    <Setting Name="trunk_lic_folder" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\dev\eyeq-license</Value>
     </Setting>
     <Setting Name="trunk_oracle" Type="System.String" Scope="User">

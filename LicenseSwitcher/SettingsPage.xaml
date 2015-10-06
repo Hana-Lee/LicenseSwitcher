@@ -56,7 +56,7 @@
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                    Margin="5" Padding="0,5"/>
             <Label x:Name="WorkspaceLabel"
-                   Content="Workspace" 
+                   Content="TARGET" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                    Margin="5" Padding="0,5" Grid.Row="1" Grid.Column="0" />
             <Label x:Name="LicFolderLabel"
@@ -81,12 +81,14 @@
 
             <ComboBox x:Name="VersionComboBox" 
                       HorizontalAlignment="Left" VerticalAlignment="Stretch" 
-                      Margin="0,5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Width="100">
+                      Margin="0,5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" 
+                      Width="100"
+                      Loaded="VersionComboBox_Loaded"
+                  SelectionChanged="VersionComboBox_SelectionChanged">
                 <ComboBoxItem IsSelected="True">trunk</ComboBoxItem>
-                <ComboBoxItem>4.1</ComboBoxItem>
-                <ComboBoxItem>4.0</ComboBoxItem>
+                <ComboBoxItem>v41</ComboBoxItem>
             </ComboBox>
-            <TextBox x:Name="WorkspaceTextBox" 
+            <TextBox x:Name="TargetTextBox" 
                      Text="C:\dev\workspace\eyeq-trunk" IsReadOnly="True"
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" />

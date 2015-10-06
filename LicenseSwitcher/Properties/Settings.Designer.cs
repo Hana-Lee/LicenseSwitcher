@@ -50,12 +50,12 @@ namespace LicenseSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\dev\\eyeq-license")]
-        public string v41_lic_dir {
+        public string v41_lic_folder {
             get {
-                return ((string)(this["v41_lic_dir"]));
+                return ((string)(this["v41_lic_folder"]));
             }
             set {
-                this["v41_lic_dir"] = value;
+                this["v41_lic_folder"] = value;
             }
         }
         
@@ -122,12 +122,12 @@ namespace LicenseSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\dev\\eyeq-license")]
-        public string trunk_lic_dir {
+        public string trunk_lic_folder {
             get {
-                return ((string)(this["trunk_lic_dir"]));
+                return ((string)(this["trunk_lic_folder"]));
             }
             set {
-                this["trunk_lic_dir"] = value;
+                this["trunk_lic_folder"] = value;
             }
         }
         
