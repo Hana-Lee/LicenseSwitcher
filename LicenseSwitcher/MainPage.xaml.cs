@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using LicenseSwitcher.Properties;
 
 namespace LicenseSwitcher
 {
     /// <summary>
-    /// MainPage.xaml에 대한 상호 작용 논리
+    ///     MainPage.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class MainPage : Page
     {
@@ -36,25 +26,10 @@ namespace LicenseSwitcher
             //var comboBox = sender as ComboBox;
             //comboBox.ItemsSource = data;
             //comboBox.SelectedIndex = 0;
-
-            WriteToOutputTextBox(sender);
         }
 
         private void VersionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            WriteToOutputTextBox(sender);
-        }
-
-        private void WriteToOutputTextBox(object sender)
-        {
-            var comboBox = sender as ComboBox;
-            if (OutputMsg == null) return;
-
-            var selectedValue = GetSelectedValueFromVersionComboBox(comboBox);
-            if (selectedValue != null)
-            {
-                OutputMsg.Text = selectedValue;
-            }
         }
 
         private static string GetSelectedValueFromVersionComboBox(Selector versionComboBox)
@@ -97,8 +72,50 @@ namespace LicenseSwitcher
             {
                 selectedDatabase = "derby";
             }
-            
-            OutputMsg.Text = (string) Properties.Settings.Default["Version"];
+
+            LicenseFile_Switch(selectedDatabase);
+
+            MessageBox.Show("라이센스를 복사 완료!!", "Information",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void LicenseFile_Switch(string selectedDatabase)
+        {
+            var selectedVersion = GetSelectedValueFromVersionComboBox(VersionCombo);
+            var targetFolder = (string) Settings.Default[selectedVersion + "_target"];
+            var licFolder = (string) Settings.Default[selectedVersion + "_lic_folder"];
+            var licFile = (string) Settings.Default[selectedVersion + "_" + selectedDatabase];
+            var srcLicFileFullPath = licFile;
+            var destTogaAdminLicFileFullPath = Path.Combine(targetFolder, "toga-admin", "src", "main", "resources",
+                "toga.lic");
+            var destTogaWebLicFileFullPath = Path.Combine(targetFolder, "kona-web", "src", "main", "resources",
+                "toga.lic");
+
+            if (!licFile.Contains(":"))
+            {
+                srcLicFileFullPath = Path.Combine(licFolder, licFile);
+            }
+
+            if (!Directory.Exists(targetFolder))
+            {
+                MessageBox.Show("라이센스를 복사 하려는 디렉토리가 존재하지 않습니다.", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            if (!Directory.Exists(Path.Combine(targetFolder, "toga-admin")))
+            {
+                MessageBox.Show("toga-admin 디렉토리가 존재하지 않습니다.", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            if (!Directory.Exists(Path.Combine(targetFolder, "kona-web")))
+            {
+                MessageBox.Show("kona-web 디렉토리가 존재하지 않습니다.", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            File.Copy(srcLicFileFullPath, destTogaAdminLicFileFullPath, true);
+            File.Copy(srcLicFileFullPath, destTogaWebLicFileFullPath, true);
         }
     }
 }
