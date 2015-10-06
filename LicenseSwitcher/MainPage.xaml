@@ -35,8 +35,7 @@
                   Loaded="VersionComboBox_Loaded"
                   SelectionChanged="VersionComboBox_SelectionChanged">
             <ComboBoxItem IsSelected="True">trunk</ComboBoxItem>
-            <ComboBoxItem>4.1</ComboBoxItem>
-            <ComboBoxItem>4.2</ComboBoxItem>
+            <ComboBoxItem>v41</ComboBoxItem>
         </ComboBox>
 
         <TextBox x:Name="OutputMsg"

@@ -57,7 +57,7 @@ namespace LicenseSwitcher
             }
         }
 
-        private static string GetSelectedValueFromVersionComboBox(Selector versionComboBox)
+        private string GetSelectedValueFromVersionComboBox(Selector versionComboBox)
         {
             var selectedValue = "";
             if (versionComboBox == null) return selectedValue;
