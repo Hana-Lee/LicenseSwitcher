@@ -42,7 +42,8 @@
                  Text="" IsReadOnly="True"
                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                  Margin="10,0,10,0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
-                 TextWrapping="NoWrap" FontSize="18"/>
+                 TextWrapping="NoWrap" FontSize="18" 
+                 HorizontalScrollBarVisibility="Auto"/>
         <Button x:Name="LicenseSwitchBtn" 
                 Content="License Switch" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -26,10 +27,20 @@ namespace LicenseSwitcher
             //var comboBox = sender as ComboBox;
             //comboBox.ItemsSource = data;
             //comboBox.SelectedIndex = 0;
+            var selectedVersionValue = GetSelectedValueFromVersionComboBox(VersionCombo);
+            if (selectedVersionValue != null)
+            {
+                OutputMsg.Text = " * " + selectedVersionValue + " 버전 준비 완료.\n";
+            }
         }
 
         private void VersionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var selectedVersionValue = GetSelectedValueFromVersionComboBox(VersionCombo);
+            if (selectedVersionValue != null)
+            {
+                OutputMsg.Text = " * " + selectedVersionValue + " 버전 준비 완료.\n";
+            }
         }
 
         private static string GetSelectedValueFromVersionComboBox(Selector versionComboBox)
@@ -54,6 +65,9 @@ namespace LicenseSwitcher
 
         private void LicenseSwitchBtn_OnClick(object sender, RoutedEventArgs e)
         {
+            OutputMsg.Text = "============================\n";
+            OutputMsg.Text += " * 라이센스 파일 변경 준비...\n";
+
             var selectedDatabaseValue = TogaProperties.Get("dataSource.url");
             string selectedDatabase;
             if (selectedDatabaseValue.ToLower().Contains(SupportedDatabase.mysql.ToString()))
@@ -73,10 +87,9 @@ namespace LicenseSwitcher
                 selectedDatabase = "derby";
             }
 
-            LicenseFile_Switch(selectedDatabase);
+            OutputMsg.Text += " * 적용 대상 데이터 베이스 : " + selectedDatabase.ToUpper() + "\n";
 
-            MessageBox.Show("라이센스를 복사 완료!!", "Information",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+            LicenseFile_Switch(selectedDatabase);
         }
 
         private void LicenseFile_Switch(string selectedDatabase)
@@ -100,22 +113,35 @@ namespace LicenseSwitcher
             {
                 MessageBox.Show("라이센스를 복사 하려는 디렉토리가 존재하지 않습니다.", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                OutputMsg.Text += " * 변경 실패 : 라이센스를 복사 하려는 디렉토리가 존재하지 않습니다.\n";
+                return;
             }
 
             if (!Directory.Exists(Path.Combine(targetFolder, "toga-admin")))
             {
                 MessageBox.Show("toga-admin 디렉토리가 존재하지 않습니다.", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                OutputMsg.Text += " * 변경 실패 : toga-admin 디렉토리가 존재하지 않습니다.\n";
+                return;
             }
 
             if (!Directory.Exists(Path.Combine(targetFolder, "kona-web")))
             {
                 MessageBox.Show("kona-web 디렉토리가 존재하지 않습니다.", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                OutputMsg.Text += " * 변경 실패 : kona-web 디렉토리가 존재하지 않습니다.\n";
+                return;
             }
 
             File.Copy(srcLicFileFullPath, destTogaAdminLicFileFullPath, true);
             File.Copy(srcLicFileFullPath, destTogaWebLicFileFullPath, true);
+
+            MessageBox.Show("라이센스 변경 완료!!!", "Information",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            OutputMsg.Text += " * 라이센스 변경 완료!!!\n";
+            OutputMsg.Text += " * 변경 완료 시각\n";
+            OutputMsg.Text += " * " + DateTime.Now + "\n";
+            OutputMsg.Text += "============================\n";
         }
     }
 }
