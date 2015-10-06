@@ -55,7 +55,7 @@
                    Content="Version"
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                    Margin="5" Padding="0,5"/>
-            <Label x:Name="WorkspaceLabel"
+            <Label x:Name="TargetLabel"
                    Content="TARGET" 
                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                    Margin="5" Padding="0,5" Grid.Row="1" Grid.Column="0" />
@@ -113,30 +113,36 @@
                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                      Margin="0,5,0,5" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" />
 
-            <Button x:Name="WorkspaceFindBtn" 
+            <Button x:Name="TargetFindBtn" 
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="1" Width="40"/>
+                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="1" Width="40"
+                    Click="Show_TargetFolderSelectDialog"/>
             <Button x:Name="LicFolderFindBtn" 
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="2" Width="40"/>
+                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="2" Width="40"
+                    Click="Show_LicFolderSelectDialog"/>
             <Button x:Name="OracleFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="3" Width="40"/>
+                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="3" Width="40"
+                    Click="Show_FileSelectDialog"/>
             <Button x:Name="MysqlFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="4" Width="40"/>
+                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="4" Width="40"
+                    Click="Show_FileSelectDialog"/>
             <Button x:Name="MssqlFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="5" Width="40"/>
+                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="5" Width="40"
+                    Click="Show_FileSelectDialog"/>
             <Button x:Name="DerbyFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="6" Width="40"/>
+                    Margin="0,5,0,5" Grid.Column="2" Grid.Row="6" Width="40"
+                    Click="Show_FileSelectDialog"/>
         </Grid>
     </DockPanel>
 </Page>

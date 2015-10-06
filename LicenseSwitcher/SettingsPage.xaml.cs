@@ -8,11 +8,15 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ComboBox = System.Windows.Controls.ComboBox;
+using MessageBox = System.Windows.MessageBox;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace LicenseSwitcher
 {
@@ -94,6 +98,29 @@ namespace LicenseSwitcher
             MysqlTextBox.Text = (string) Properties.Settings.Default[mysqlKey];
             MssqlTextBox.Text = (string) Properties.Settings.Default[mssqlKey];
             DerbyTextBox.Text = (string) Properties.Settings.Default[derbyKey];
+        }
+
+        private void Show_TargetFolderSelectDialog(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FolderBrowserDialog {ShowNewFolderButton = true};
+            var selectedResult = dialog.ShowDialog();
+            if (selectedResult != DialogResult.OK) return;
+
+            TargetTextBox.Text = dialog.SelectedPath;
+        }
+
+        private void Show_LicFolderSelectDialog(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FolderBrowserDialog { ShowNewFolderButton = true };
+            var selectedResult = dialog.ShowDialog();
+            if (selectedResult != DialogResult.OK) return;
+
+            LicFolderTextBox.Text = dialog.SelectedPath;
+        }
+
+        private void Show_FileSelectDialog(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
