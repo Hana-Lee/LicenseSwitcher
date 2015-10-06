@@ -1,27 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using LicenseSwitcher.Properties;
 using ComboBox = System.Windows.Controls.ComboBox;
 using MessageBox = System.Windows.MessageBox;
-using TextBox = System.Windows.Forms.TextBox;
 
 namespace LicenseSwitcher
 {
     /// <summary>
-    /// SettingsPage.xaml에 대한 상호 작용 논리
+    ///     SettingsPage.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class SettingsPage : Page
     {
@@ -37,7 +25,7 @@ namespace LicenseSwitcher
 
         private void SaveBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Settings save done!", "Information", 
+            var result = MessageBox.Show("Settings save done!", "Information",
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
             if (result == MessageBoxResult.OK)
@@ -92,35 +80,61 @@ namespace LicenseSwitcher
             var mysqlKey = selectedVersion + "_mysql";
             var mssqlKey = selectedVersion + "_mssql";
 
-            TargetTextBox.Text = (string) Properties.Settings.Default[targetKey];
-            LicFolderTextBox.Text = (string) Properties.Settings.Default[licFolderKey];
-            OracleTextBox.Text = (string) Properties.Settings.Default[oracleKey];
-            MysqlTextBox.Text = (string) Properties.Settings.Default[mysqlKey];
-            MssqlTextBox.Text = (string) Properties.Settings.Default[mssqlKey];
-            DerbyTextBox.Text = (string) Properties.Settings.Default[derbyKey];
+            TargetTextBox.Text = (string) Settings.Default[targetKey];
+            LicFolderTextBox.Text = (string) Settings.Default[licFolderKey];
+            OracleTextBox.Text = (string) Settings.Default[oracleKey];
+            MysqlTextBox.Text = (string) Settings.Default[mysqlKey];
+            MssqlTextBox.Text = (string) Settings.Default[mssqlKey];
+            DerbyTextBox.Text = (string) Settings.Default[derbyKey];
         }
 
         private void Show_TargetFolderSelectDialog(object sender, RoutedEventArgs e)
         {
-            var dialog = new FolderBrowserDialog {ShowNewFolderButton = true};
-            var selectedResult = dialog.ShowDialog();
-            if (selectedResult != DialogResult.OK) return;
-
-            TargetTextBox.Text = dialog.SelectedPath;
+            TargetTextBox.Text = Get_SelectedPath();
         }
 
         private void Show_LicFolderSelectDialog(object sender, RoutedEventArgs e)
         {
-            var dialog = new FolderBrowserDialog { ShowNewFolderButton = true };
-            var selectedResult = dialog.ShowDialog();
-            if (selectedResult != DialogResult.OK) return;
-
-            LicFolderTextBox.Text = dialog.SelectedPath;
+            LicFolderTextBox.Text = Get_SelectedPath();
         }
 
-        private void Show_FileSelectDialog(object sender, RoutedEventArgs e)
+        private static string Get_SelectedPath()
         {
-            
+            var dialog = new FolderBrowserDialog {ShowNewFolderButton = true};
+            var selectedResult = dialog.ShowDialog();
+            return selectedResult == DialogResult.OK ? dialog.SelectedPath : string.Empty;
+        }
+
+        private void Show_OracleFileSelectDialog(object sender, RoutedEventArgs e)
+        {
+            OracleTextBox.Text = Get_SelectedFileName();
+        }
+
+        private void Show_MysqlFileSelectDialog(object sender, RoutedEventArgs e)
+        {
+            MysqlTextBox.Text = Get_SelectedFileName();
+        }
+
+        private void Show_MssqlFileSelectDialog(object sender, RoutedEventArgs e)
+        {
+            MssqlTextBox.Text = Get_SelectedFileName();
+        }
+
+        private void Show_DerbyFileSelectDialog(object sender, RoutedEventArgs e)
+        {
+            DerbyTextBox.Text = Get_SelectedFileName();
+        }
+
+        private string Get_SelectedFileName()
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = @"모든파일 (*.*)|*.*",
+                Multiselect = false,
+                InitialDirectory = LicFolderTextBox.Text
+            };
+            var selectedResult = dialog.ShowDialog();
+            return selectedResult == DialogResult.OK ? dialog.FileName : string.Empty;
         }
     }
 }

@@ -127,22 +127,22 @@
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="3" Width="40"
-                    Click="Show_FileSelectDialog"/>
+                    Click="Show_OracleFileSelectDialog"/>
             <Button x:Name="MysqlFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="4" Width="40"
-                    Click="Show_FileSelectDialog"/>
+                    Click="Show_MysqlFileSelectDialog"/>
             <Button x:Name="MssqlFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="5" Width="40"
-                    Click="Show_FileSelectDialog"/>
+                    Click="Show_MssqlFileSelectDialog"/>
             <Button x:Name="DerbyFindBtn"
                     Content="Find"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Margin="0,5,0,5" Grid.Column="2" Grid.Row="6" Width="40"
-                    Click="Show_FileSelectDialog"/>
+                    Click="Show_DerbyFileSelectDialog"/>
         </Grid>
     </DockPanel>
 </Page>
