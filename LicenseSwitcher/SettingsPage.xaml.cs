@@ -25,6 +25,8 @@ namespace LicenseSwitcher
 
         private void SaveBtn_OnClick(object sender, RoutedEventArgs e)
         {
+            Save_Settings();
+
             var result = MessageBox.Show("Settings save done!", "Information",
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -32,6 +34,26 @@ namespace LicenseSwitcher
             {
                 PageSwitcher.Switch(new MainPage());
             }
+        }
+
+        private void Save_Settings()
+        {
+            var versionValue = GetSelectedValueFromVersionComboBox(VersionComboBox);
+            var targetValue = TargetTextBox.Text;
+            var licFolderValue = LicFolderTextBox.Text;
+            var oracleValue = OracleTextBox.Text;
+            var mysqlValue = MysqlTextBox.Text;
+            var mssqlValue = MssqlTextBox.Text;
+            var derbyValue = DerbyTextBox.Text;
+
+            Settings.Default.Version = versionValue;
+            Settings.Default[versionValue + "_target"] = targetValue;
+            Settings.Default[versionValue + "_lic_folder"] = licFolderValue;
+            Settings.Default[versionValue + "_oracle"] = oracleValue;
+            Settings.Default[versionValue + "_mysql"] = mysqlValue;
+            Settings.Default[versionValue + "_mssql"] = mssqlValue;
+            Settings.Default[versionValue + "_derby"] = derbyValue;
+            Settings.Default.Save();
         }
 
         private void VersionComboBox_Loaded(object sender, RoutedEventArgs e)
