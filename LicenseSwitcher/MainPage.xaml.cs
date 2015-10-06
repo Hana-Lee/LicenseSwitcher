@@ -80,7 +80,7 @@ namespace LicenseSwitcher
             }
             else if (selectedDatabaseValue.ToLower().Contains(SupportedDatabase.sqlserver.ToString()))
             {
-                selectedDatabase = "sqlserver";
+                selectedDatabase = "mssql";
             }
             else
             {
